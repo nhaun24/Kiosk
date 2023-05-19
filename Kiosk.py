@@ -7,6 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.edge.options import Options
 import configparser
+import sys
+
+os.system(r'"C:\Program Files\Git\bin\git" pull')
 
 # Path to the edgedriver executable
 driver_path = '/path/to/edgedriver'
@@ -21,7 +24,8 @@ url = 'https://onrealm.org/fbcathens/Home/Tasks?redirectController=Individual&re
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(r'C:\Program Files\config.ini')
+
 username = config.get('Credentials', 'username')
 password = config.get('Credentials', 'password')
 
@@ -30,7 +34,7 @@ if not username:
     username = input('Enter your username: ')
 
 if not password:
-    password = getpass.getpass('Enter your password: ')
+    password = input('Enter your password: ')
 
 
 # Launch Microsoft Edge browser using edgedriver
@@ -77,8 +81,17 @@ check_in_sign_up_mode_dial.click()
 launch_kiosk_button2 = driver.find_element(By.XPATH, '//*[@id="launch-kiosk-dialog"]/div[2]/a[1]')
 launch_kiosk_button2.click()
 
-# Add a delay to keep the Kiosk window open for a certain duration
-time.sleep(14700) 
+# Determine what to do for shutdown and timeing
+sleep_time = int(config.get('Shutdown', 'sleep_time'))
+shutdown_host = config.getboolean('Shutdown', 'shutdown_host')
 
-# Execute the shutdown command
-os.system('shutdown /s /t 0')
+# Add a delay to keep the Kiosk window open for a certain duration
+time.sleep(sleep_time) 
+
+# Check the shutdown behavior configuration
+if shutdown_host:
+    # Execute the shutdown command
+    os.system(f'shutdown /s /t 0')
+else:
+       # Exit the script
+    sys.exit()
