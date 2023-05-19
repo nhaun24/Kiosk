@@ -44,12 +44,12 @@ driver = webdriver.Edge(executable_path=driver_path, options=edge_options)
 driver.get(url)
 
 # Find and click the "Sign In" button
-sign_in_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="start-page-app"]/div[2]/div[1]/ul/li[3]/a')))
+sign_in_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="start-page-app"]/div[2]/div[1]/ul/li[3]/a')))
 sign_in_button.click()
 
 # Find the username and password fields and fill them with the credentials
-username_field = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="userName"]')))
-password_field = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="password"]')))
+username_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="userName"]')))
+password_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="password"]')))
 
 username_field.send_keys(username)
 password_field.send_keys(password)
@@ -58,7 +58,7 @@ password_field.send_keys(password)
 password_field.send_keys(Keys.RETURN)
 
 # Wait for the page to load after logging in (you can modify the wait time if needed)
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 20)
 wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="main-nav"]/ul/li[6]/a/img')))
 
 # Click the "Check-In" button
@@ -66,7 +66,7 @@ check_in_button = driver.find_element(By.XPATH, '//*[@id="main-nav"]/ul/li[6]/a/
 check_in_button.click()
 
 # Find and click the "More Options" button
-more_options_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, 'icon-more')))
+more_options_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, 'icon-more')))
 more_options_button.click()
 
 # Find and click the "Launch Kiosk" button
@@ -74,7 +74,7 @@ launch_kiosk_button = driver.find_element(By.XPATH, '//*[@id="checkInProfiles_ta
 launch_kiosk_button.click()
 
 # Find and click the radial dial for "Check-In & Sign-Up Mode"
-check_in_sign_up_mode_dial = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="check-in-type-add"]')))
+check_in_sign_up_mode_dial = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="check-in-type-add"]')))
 check_in_sign_up_mode_dial.click()
 
 # Find and click the "Launch Kiosk" button again
