@@ -9,7 +9,11 @@ from selenium.webdriver.edge.options import Options
 import configparser
 import sys
 
-os.system(r'"C:\Program Files\Git\bin\git" pull')
+# Change directory to the specified path
+os.chdir(r"C:\Users\Admin\Documents\Get")
+
+# Execute the Git pull command
+os.system('git pull https://github.com/nhaun24/Kiosk main')
 
 # Path to the edgedriver executable
 driver_path = '/path/to/edgedriver'
