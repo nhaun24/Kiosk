@@ -16,7 +16,7 @@ os.chdir(r"C:\Users\Admin\Documents\Get")
 os.system('git pull https://github.com/nhaun24/Kiosk main')
 
 # Path to the edgedriver executable
-driver_path = '/path/to/edgedriver'
+driver_path = 'C:\Program Files'
 
 # Create Edge options
 edge_options = Options()
