@@ -51,4 +51,4 @@ Place the config.ini file in the Program Files directory. Be sure to modify the 
 
 The sleep_time option determines the duration, in seconds, to wait before initiating the shutdown process. Set this value according to your requirements.
 
-The shutdown_host option controls the behavior of the shutdown process. Set it to either yes or no to determine whether the script should shut down the host or only close the application. For example:
+The shutdown_host option controls the behavior of the shutdown process. Set it to either yes or no to determine whether the script should shut down the host or only close the application.
