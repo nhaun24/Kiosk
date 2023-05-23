@@ -10,7 +10,7 @@ import configparser
 import sys
 
 # Change directory to the specified path
-os.chdir(r"C:\Users\Admin\Documents\Get")
+os.chdir(r"C:\Program Files\repo")
 
 # Execute the Git pull command
 os.system('git pull https://github.com/nhaun24/Kiosk main')
