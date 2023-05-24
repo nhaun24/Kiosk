@@ -13,7 +13,7 @@ import sys
 os.chdir(r"C:\Users\Admin\Documents\Get")
 
 # Execute the Git pull command
-os.system('git pull https://github.com/nhaun24/Kiosk main')
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
 
 # Path to the edgedriver executable
 driver_path = '/path/to/edgedriver'
