@@ -10,13 +10,13 @@ import configparser
 import sys
 
 # Change directory to the specified path
-os.chdir(r"C:\Users\Admin\Documents\Get")
+os.chdir(r"C:\Program Files\repo")
 
 # Execute the Git pull command
 os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
 
 # Path to the edgedriver executable
-driver_path = '/path/to/edgedriver'
+driver_path = 'C:\Program Files'
 
 # Create Edge options
 edge_options = Options()
