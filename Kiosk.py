@@ -8,6 +8,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.edge.options import Options
 import configparser
 import sys
+import subprocess
+
+# Path to the QZ Tray application executable
+qz_tray_path = r"C:\Program Files\QZ Tray\qz-tray.exe"
+
+# Launch the QZ Tray application
+subprocess.Popen(qz_tray_path)
 
 # Change directory to the specified path
 os.chdir(r"C:\Program Files\repo")
