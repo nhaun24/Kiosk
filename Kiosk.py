@@ -10,11 +10,14 @@ import configparser
 import sys
 import subprocess
 
-# Path to the QZ Tray application executable
-qz_tray_path = r"C:\Program Files\QZ Tray\qz-tray.exe"
+# Function to check if QZ tray is running
+def is_qz_tray_running():
+    result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
+    return 'qz-tray.exe' in result.stdout
 
-# Launch the QZ Tray application
-subprocess.Popen(qz_tray_path)
+# Check if QZ tray is running, if not, open it
+if not is_qz_tray_running():
+    subprocess.Popen(r'"C:\Program Files\QZ Tray\qz-tray.exe"') 
 
 # Change directory to the specified path
 os.chdir(r"C:\Program Files\repo")
