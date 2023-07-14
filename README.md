@@ -1,5 +1,5 @@
 # Kiosk
-.py code for remote kisok update opperations
+.py code for use with onrealm PC based Kiosks, to automate the startup procedure. 
 
 PREREQS*******************************************
 
@@ -49,6 +49,6 @@ The config.ini file is used to store configuration options for the script. It al
 
 Place the config.ini file in the Program Files directory. Be sure to modify the provided .ini file to reflect your variables
 
-The sleep_time option determines the duration, in seconds, to wait before initiating the shutdown process. Set this value according to your requirements.
+The sleep_time option determines the duration, in seconds, to wait before initiating the shutdown process. VALUE IS MEASURED IN SECONDS, please change accordingly.
 
-The shutdown_host option controls the behavior of the shutdown process. Set it to either yes or no to determine whether the script should shut down the host or only close the application.
+The shutdown_host option controls the behavior of the shutdown process. Set it to either yes or no to determine whether the script should shut down the host or only close the application. Var must be [yes] to shut down, any other char will result in program not shutting down host.
