@@ -38,7 +38,7 @@ config = configparser.ConfigParser()
 config.read(r'C:\Program Files\config.ini')
 
 # URL of the webpage you want to open
-url = config.get('Credentials', 'url')
+url = config.get('Url', 'url')
 
 username = config.get('Credentials', 'username')
 password = config.get('Credentials', 'password')
