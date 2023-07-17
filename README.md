@@ -1,5 +1,10 @@
 # Kiosk
-.py code for use with onrealm PC based Kiosks, to automate the startup procedure. 
+.py code for use with onrealm PC based Kiosks, to automate the startup procedure.
+	This code uses a mix of Python librarys and Git to make your onrealm public facing kiosks 100% remote and in no need of interaction.
+ 	The code starts by checking for updates on the main branch of this repository, then downloads them. It then goes on to open QZ-Trey, which is vital for printing from the kisok software.
+   	After that, it looks through the config.ini file to locate the URL and credentials for your onrealm instance. From there it goes about navigating the website to land you on the kiosk page.
+    	Finally it waits for however long you have it set for in the config.ini file, then either closes all apps, or shutsdown the host depending on your preferences. 
+     This code is commented pretty hevily, and what is not explained in the code, will most likely be in this read me.
 
 PREREQS*******************************************
 
