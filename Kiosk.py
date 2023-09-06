@@ -10,6 +10,9 @@ import configparser
 import sys
 import subprocess
 
+# wait for host to initialise. can change this timer
+time.sleep(180)
+
 # Function to check if QZ tray is running
 def is_qz_tray_running():
     result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
