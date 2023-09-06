@@ -11,6 +11,7 @@ import sys
 import subprocess
 
 # wait for host to initialise. can change this timer
+print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(180)
 
 # Function to check if QZ tray is running
