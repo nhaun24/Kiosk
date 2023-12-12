@@ -37,12 +37,12 @@ edge_options = Options()
 edge_options.use_chromium = True
 edge_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
 
-# URL of the webpage you want to open
-url = 'https://onrealm.org/fbcathens/Home/Tasks?redirectController=Individual&redirectAction=Info&redirectId=b1639cf8-8fc1-4287-a213-ad7a0148dd6a'
-
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
 config.read(r'C:\Program Files\config.ini')
+
+# URL of the webpage you want to open
+url = config.get('Url', 'url')
 
 username = config.get('Credentials', 'username')
 password = config.get('Credentials', 'password')
