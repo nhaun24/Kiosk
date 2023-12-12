@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.firefox.options import Options
 import configparser
 import sys
 import subprocess
@@ -24,18 +24,17 @@ if not is_qz_tray_running():
     subprocess.Popen(r'"C:\Program Files\QZ Tray\qz-tray.exe"') 
 
 # Change directory to the specified path
-os.chdir(r"C:\Program Files\repo")
+os.chdir(r"/var/kiosk")
 
 # Execute the Git pull command
-os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Path to the edgedriver executable
-driver_path = 'C:\Program Files'
+driver_path = '/usr/local/bin/geckodriver'
 
-# Create Edge options
-edge_options = Options()
-edge_options.use_chromium = True
-edge_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
+# Create Firefox options
+firefox_options = Options()
+firefox_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
@@ -56,7 +55,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Edge(executable_path=driver_path, options=edge_options)
+driver = webdriver.Firefox(executable_path=driver_path, options=firefox_options)
 
 # Open the webpage
 driver.get(url)
