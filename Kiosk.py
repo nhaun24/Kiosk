@@ -11,7 +11,7 @@ import subprocess
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
-time.sleep(18)
+time.sleep(1)
 
 # Function to check if QZ tray is running
 #def is_qz_tray_running():
@@ -26,7 +26,7 @@ time.sleep(18)
 os.chdir(r"/var/kiosk")
 
 # Execute the Git pull command
-os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
+os.system('sudo git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Path to the edgedriver executable
 driver_path = '/bin/chromium-browser'
