@@ -1,10 +1,13 @@
 [Unit]
 Description=Kiosk Script
+After=network.target
+
 
 [Service]
-Type=simple
-ExecStart=/var/kiosk/conf/auto.sh
+ExecStart=/usr/bin/python3 /var/kiosk/Kiosk.py
+WorkingDirectory=/var/kiosk
 Restart=always
+User=administrator
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
