@@ -31,13 +31,15 @@ os.system('sudo git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Specify tempfile stuff
 temp_user_data_dir = tempfile.mkdtemp()
+temp_cache_dir = tempfile.mkdtemp()
 
 # Path to the edgedriver executable
 driver_path = '/bin/chromium-browser'
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--user-data-dir={temp_user_data_dir}')
+chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
+chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
 chrome_options.binary_location = "/usr/bin/chromium-browser"
 
 # Read the credentials from the configuration file
