@@ -18,13 +18,17 @@ sudo apt-get install xvfb -y
 sudo apt-get install python3-pip -y
 
 # Install required Python packages
-pip3 install configparser selenium
+sudo pip3 install configparser
+sudo pip3 install selenium
 
 sudo cd /var
 sudo mkdir kiosk
 sudo cd kiosk
 sudo git init
-sudo 
+sudo git pull --no-verify https://github.com/nhaun24/Kiosk Linux
+sudo mkdir conf
+sudo cp config.ini /var/kiosk/conf
 
-echo "Installed successfully."
+
+echo "Installed successfully. Remember to change the config.ini file"
 
