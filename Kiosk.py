@@ -5,13 +5,16 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+from pyvirtualdisplay import Display
 import configparser
 import sys
 import subprocess
 import tempfile
 
 os.environ['DISPLAY'] = ':0'
-
+display = Display(visible=0, size=(1920, 1080))
+display.start()
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(1)
