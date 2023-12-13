@@ -55,7 +55,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Firefox(options=firefox_options) #executable_path=driver_path,
+driver = webdriver.Firefox(executable_path=driver_path, options=firefox_options)
 
 # Open the webpage
 driver.get(url)
