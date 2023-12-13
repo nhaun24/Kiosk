@@ -3,8 +3,8 @@
 # Update package list
 sudo apt update
 
-# Install Geckodriver
-sudo apt-get install firefox-geckodriver -y
+# Install WebDriver
+sudo apt-get install chromium-chromedriver -y
 
 # Install Python 3
 sudo apt-get install python3 -y
