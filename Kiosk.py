@@ -13,8 +13,7 @@ import subprocess
 import tempfile
 
 os.environ['DISPLAY'] = ':0'
-display = Display(visible=0, size=(1920, 1080))
-display.start()
+
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(1)
@@ -46,7 +45,7 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
 chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
 chrome_options.binary_location = "/usr/bin/chromium-browser"
-chrome_options.add_argument('--headless')
+#chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--disable-software-rasterizer')
 chrome_options.add_argument('--disable-extensions')
