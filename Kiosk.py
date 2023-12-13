@@ -15,13 +15,13 @@ print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(180)
 
 # Function to check if QZ tray is running
-def is_qz_tray_running():
-    result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
-    return 'qz-tray.exe' in result.stdout
-
+#def is_qz_tray_running():
+#    result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
+#    return 'qz-tray.exe' in result.stdout
+#
 # Check if QZ tray is running, if not, open it
-if not is_qz_tray_running():
-    subprocess.Popen(r'"C:\Program Files\QZ Tray\qz-tray.exe"') 
+#if not is_qz_tray_running():
+#    subprocess.Popen(r'"C:\Program Files\QZ Tray\qz-tray.exe"') 
 
 # Change directory to the specified path
 os.chdir(r"/var/kiosk")
