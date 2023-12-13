@@ -5,7 +5,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.options import Options
 import configparser
 import sys
 import subprocess
@@ -30,11 +29,10 @@ os.chdir(r"/var/kiosk")
 os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Path to the edgedriver executable
-driver_path = '/usr/local/bin/geckodriver'
+driver_path = '/bin/chromium-browser'
 
-# Create Firefox options
-firefox_options = Options()
-firefox_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
+# Create Chrome options
+chrome_options = webdriver.ChromeOptions()
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
@@ -55,7 +53,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Firefox(executable_path=driver_path, options=firefox_options)
+driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options)
 
 # Open the webpage
 driver.get(url)
