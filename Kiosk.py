@@ -33,6 +33,7 @@ driver_path = '/bin/chromium-browser'
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
+chrome_options.add_arguments('--headless')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
