@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from pyvirtualdisplay import Display
+from webdriver_manager.chrome import ChromeDriverManager
 import configparser
 import sys
 import subprocess
@@ -45,7 +45,7 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
 chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
 chrome_options.binary_location = "/usr/bin/chromium-browser"
-#chrome_options.add_argument('--headless')
+chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3')
 chrome_options.add_argument('--disable-software-rasterizer')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--start-maximized') 
@@ -55,6 +55,7 @@ chrome_options.add_argument('--disable-extensions')
 chrome_options.add_argument('--disable-notifications')
 chrome_options.add_argument('--disable-save-password-bubble')
 chrome_options.add_argument('--disable-translate')
+chrome_options.add_argument('--disable-session-crashed-bubble')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
