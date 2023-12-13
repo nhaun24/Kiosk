@@ -12,7 +12,7 @@ import subprocess
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
-time.sleep(180)
+time.sleep(18)
 
 # Function to check if QZ tray is running
 #def is_qz_tray_running():
@@ -55,7 +55,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Firefox(executable_path=driver_path, options=firefox_options)
+driver = webdriver.Firefox(options=firefox_options) #executable_path=driver_path,
 
 # Open the webpage
 driver.get(url)
