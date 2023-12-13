@@ -10,6 +10,8 @@ import sys
 import subprocess
 import tempfile
 
+os.environ['DISPLAY'] = ':0'
+
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(1)
