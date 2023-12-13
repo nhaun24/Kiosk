@@ -1,0 +1,10 @@
+[Unit]
+Description=Kiosk Script
+
+[Service]
+Type=simple
+ExecStart=/var/kiosk/conf/auto.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
