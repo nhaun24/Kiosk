@@ -24,6 +24,7 @@ sudo apt-get install git -y
 # Install required Python packages
 sudo pip3 install configparser
 sudo pip3 install selenium
+sudo pip3 install webdriver_manager
 
 sudo mkdir -p /var/kiosk
 sudo git init /var/kiosk
