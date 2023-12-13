@@ -56,6 +56,7 @@ chrome_options.add_argument('--disable-notifications')
 chrome_options.add_argument('--disable-save-password-bubble')
 chrome_options.add_argument('--disable-translate')
 chrome_options.add_argument('--disable-session-crashed-bubble')
+chrome_options.add_argument('--kiosk')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
