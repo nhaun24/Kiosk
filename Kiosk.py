@@ -38,7 +38,7 @@ firefox_options.add_argument("--kiosk")  # Add this argument to start the browse
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
-config.read(r'C:\Program Files\config.ini')
+config.read(r'/var/kiosk/conf/config.ini')
 
 # URL of the webpage you want to open
 url = config.get('Url', 'url')
