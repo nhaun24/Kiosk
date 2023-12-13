@@ -18,6 +18,9 @@ sudo apt-get install xvfb -y
 # Install Python dependencies using pip
 sudo apt-get install python3-pip -y
 
+# Install Git
+sudo apt-get install git -y
+
 # Install required Python packages
 sudo pip3 install configparser
 sudo pip3 install selenium
