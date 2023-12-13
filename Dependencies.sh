@@ -12,6 +12,8 @@ sudo apt-get install python3 -y
 # Install QZ-tray
 wget -qO - qz.sh | bash
 
+# Install xvfb
+sudo apt-get install xvfb -y
 # Install Python dependencies using pip
 sudo apt-get install python3-pip -y
 
