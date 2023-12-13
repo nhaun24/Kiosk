@@ -20,8 +20,5 @@ sudo apt-get install python3-pip -y
 # Install required Python packages
 pip3 install configparser selenium
 
-# Additional packages that are part of the standard library, so no need to install
-# - os
-# - time
 
 echo "Dependencies installed successfully."
