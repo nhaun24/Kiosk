@@ -14,6 +14,7 @@ wget -qO - qz.sh | bash
 
 # Install xvfb
 sudo apt-get install xvfb -y
+
 # Install Python dependencies using pip
 sudo apt-get install python3-pip -y
 
@@ -21,13 +22,12 @@ sudo apt-get install python3-pip -y
 sudo pip3 install configparser
 sudo pip3 install selenium
 
-sudo cd /var
-sudo mkdir kiosk
-sudo cd kiosk
-sudo git init
-sudo git pull --no-verify https://github.com/nhaun24/Kiosk Linux
-sudo mkdir conf
+sudo mkdir -p /var/kiosk
+sudo git init /var/kiosk
+sudo git --git-dir=/var/kiosk/.git --work-tree=/var/kiosk pull --no-verify https://github.com/nhaun24/Kiosk Linux
+sudo mkdir -p /var/kiosk/conf
 sudo cp config.ini /var/kiosk/conf
+
 
 
 echo "Installed successfully. Remember to change the config.ini file"
