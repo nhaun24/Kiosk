@@ -41,13 +41,14 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
 chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
 chrome_options.binary_location = "/usr/bin/chromium-browser"
+chrome_options.add_argument('--start-fullscreen')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
 config.read(r'/var/kiosk/conf/config.ini')
 
 # URL of the webpage you want to open
-url = config.get('Url', 'url')
+url = 'https://onrealm.org/fbcathens/Home/Tasks?redirectController=Individual&redirectAction=Info&redirectId=b1639cf8-8fc1-4287-a213-ad7a0148dd6a'
 
 username = config.get('Credentials', 'username')
 password = config.get('Credentials', 'password')
