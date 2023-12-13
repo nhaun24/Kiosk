@@ -29,7 +29,7 @@ time.sleep(1)
 os.chdir(r"/var/kiosk")
 
 # Execute the Git pull command
-os.system('sudo git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Specify tempfile stuff
 temp_user_data_dir = tempfile.mkdtemp()
