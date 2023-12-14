@@ -115,15 +115,16 @@ launch_kiosk_button2.click()
 # Determine what to do for shutdown and timeing
 sleep_time = int(config.get('Shutdown', 'sleep_time'))
 #shutdown_host = config.getboolean('Shutdown', 'shutdown_host')
-shutdown_or_restart = config.get('Shutdown', 'shutdown_or_restart').lower()
+#shutdown_or_restart = config.get('Shutdown', 'shutdown_or_restart').lower()
 
 # Add a delay to keep the Kiosk window open for a certain duration
 time.sleep(sleep_time) 
 
+os.system('sudo shutdown 13:00')
 # Check the shutdown behavior configuration
-if shutdown_or_restart == 'shutdown':
+#if shutdown_or_restart == 'shutdown':
     # Execute the shutdown command
-    os.system('sudo poweroff') 
-elif shutdown_or_restart == 'restart':
+#     os.system('sudo poweroff') 
+#elif shutdown_or_restart == 'restart':
     # Execute the restart command
-    os.system('sudo reboot') 
+ #   os.system('sudo reboot') 
