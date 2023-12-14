@@ -18,7 +18,7 @@ sudo apt-get install xvfb -y
 sudo apt-get install python3-pip -y
 
 # Install required Python packages
-pip3 install configparser selenium signal
+pip3 install configparser selenium
 
 
 echo "Dependencies installed successfully."
