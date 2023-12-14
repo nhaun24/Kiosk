@@ -28,9 +28,10 @@ os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 temp_user_data_dir = tempfile.mkdtemp()
 temp_cache_dir = tempfile.mkdtemp()
 
+chrome_binary_path = '/usr/bin/chromium-browser'
 # Path to the edgedriver executable
 #driver_path = '/usr/bin/chromium-browser'
-driver_path = ChromeDriverManager().install()
+driver_path = ChromeDriverManager(chrome_type='chrome', path=chrome_binary_path).install()
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
