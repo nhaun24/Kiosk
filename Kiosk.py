@@ -134,7 +134,7 @@ if shutdown_or_restart == 'shutdown':
     os.system('sudo poweroff') 
 elif shutdown_or_restart == 'restart':
     # Execute the restart command
-    os.system('sudo restart') 
+    os.system('sudo reboot') 
 else:
     # Exit the script if the configuration is not recognized
     sys.exit()
