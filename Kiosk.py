@@ -131,7 +131,7 @@ time.sleep(sleep_time)
 # Check the shutdown behavior configuration
 if shutdown_or_restart == 'shutdown':
     # Execute the shutdown command
-    os.system('sudo shutdown') 
+    os.system('sudo poweroff') 
 elif shutdown_or_restart == 'restart':
     # Execute the restart command
     os.system('sudo restart') 
