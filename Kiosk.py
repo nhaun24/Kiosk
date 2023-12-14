@@ -31,9 +31,19 @@ temp_cache_dir = tempfile.mkdtemp()
 chrome_binary_path = '/usr/bin/chromium-browser'
 # Path to the edgedriver executable
 #driver_path = '/usr/bin/chromium-browser'
-driver_path = ChromeDriverManager(chrome_type='chrome')
-driver_path.chrome_path = chrome_binary_path
-driver_path.install()
+
+# Specify the path to the Chromium binary
+chrome_binary_path = '/usr/bin/chromium-browser'  # Adjust this path based on the output of 'which chromium-browser'
+
+# Specify the path to the corresponding ChromeDriver binary (downloaded manually)
+chrome_driver_path = '/usr/bin/chromedriver'  # Adjust this path to the actual location of your chromedriver executable
+
+# Create Chrome options
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = chrome_binary_path
+
+# Initialize the Chrome driver with the specified ChromeDriver path
+driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
