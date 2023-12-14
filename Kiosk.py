@@ -12,7 +12,7 @@ import sys
 import subprocess
 import tempfile
 
-os.environ['DISPLAY'] = ':0'
+#os.environ['DISPLAY'] = ':0'
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
@@ -29,12 +29,13 @@ temp_user_data_dir = tempfile.mkdtemp()
 temp_cache_dir = tempfile.mkdtemp()
 
 # Path to the edgedriver executable
-driver_path = '/usr/bin/chromium-browser'
+#driver_path = '/usr/bin/chromium-browser'
+driver_path = ChromeDriverManager().install()
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
-#chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
-#chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
+chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
+chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
 #chrome_options.binary_location = "/usr/bin/chromium-browser"
 #chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36)
 #chrome_options.add_argument('--disable-software-rasterizer')
@@ -45,7 +46,7 @@ chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--disable-extensions')
 #chrome_options.add_argument('--disable-notifications')
 #chrome_options.add_argument('--disable-save-password-bubble')
-#chrome_options.add_argument('--disable-translate')
+chrome_options.add_argument('--enable-logging')
 #chrome_options.add_argument('--disable-session-crashed-bubble')
 #chrome_options.add_argument('--kiosk')
 
@@ -68,7 +69,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Chrome(options=chrome_options) #executable_path=driver_path,
+driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options) #executable_path=driver_path,
 
 # Open the webpage
 driver.get(url)
