@@ -122,7 +122,8 @@ launch_kiosk_button2.click()
 
 # Determine what to do for shutdown and timeing
 sleep_time = int(config.get('Shutdown', 'sleep_time'))
-shutdown_host = config.getboolean('Shutdown', 'shutdown_host')
+#shutdown_host = config.getboolean('Shutdown', 'shutdown_host')
+shutdown_or_restart = config.get('Shutdown', 'shutdown_or_restart').lower()
 
 # Add a delay to keep the Kiosk window open for a certain duration
 time.sleep(sleep_time) 
