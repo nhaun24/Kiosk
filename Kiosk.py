@@ -42,8 +42,6 @@ chrome_driver_path = '/usr/bin/chromedriver'  # Adjust this path to the actual l
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = chrome_binary_path
 
-# Initialize the Chrome driver with the specified ChromeDriver path
-driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
@@ -83,6 +81,7 @@ if not password:
 
 # Launch Microsoft Edge browser using edgedriver
 driver = webdriver.Chrome(options=chrome_options) #executable_path=driver_path,
+#driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
 # Open the webpage
 driver.get(url)
