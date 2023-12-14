@@ -30,7 +30,7 @@ temp_user_data_dir = tempfile.mkdtemp()
 temp_cache_dir = tempfile.mkdtemp()
 
 # Path to the edgedriver executable
-driver_path = '/bin/chromium-browser'
+driver_path = '/usr/bin/chromium-browser'
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
