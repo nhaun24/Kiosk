@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-#from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 import configparser
 import sys
 import subprocess
@@ -28,15 +28,9 @@ os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 temp_user_data_dir = tempfile.mkdtemp()
 temp_cache_dir = tempfile.mkdtemp()
 
-chrome_binary_path = '/usr/bin/chromium-browser'
 # Path to the edgedriver executable
 #driver_path = '/usr/bin/chromium-browser'
-
-# Specify the path to the Chromium binary
-chrome_binary_path = '/usr/bin/chromium-browser'  # Adjust this path based on the output of 'which chromium-browser'
-
-# Specify the path to the corresponding ChromeDriver binary (downloaded manually)
-chrome_driver_path = '/usr/bin/chromedriver'  # Adjust this path to the actual location of your chromedriver executable
+driver_path = ChromeDriverManager().install()
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
