@@ -18,14 +18,12 @@ os.environ['DISPLAY'] = ':0'
 print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(1)
 
-# Function to check if QZ tray is running
-#def is_qz_tray_running():
-#    result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
-#    return 'qz-tray.exe' in result.stdout
-#
-# Check if QZ tray is running, if not, open it
-#if not is_qz_tray_running():
-#    subprocess.Popen(r'"C:\Program Files\QZ Tray\qz-tray.exe"') 
+# Function to handle shutdown gracefully
+def handle_shutdown(signal, frame):
+    sys.exit()
+
+# Register the signal handler for SIGTERM
+signal.signal(signal.SIGTERM, handle_shutdown)
 
 # Change directory to the specified path
 os.chdir(r"/var/kiosk")
