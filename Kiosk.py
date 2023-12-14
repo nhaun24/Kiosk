@@ -34,7 +34,6 @@ driver_path = ChromeDriverManager().install()
 
 # Create Chrome options
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = chrome_binary_path
 
 
 # Create Chrome options
