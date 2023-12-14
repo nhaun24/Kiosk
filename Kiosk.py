@@ -11,6 +11,7 @@ import configparser
 import sys
 import subprocess
 import tempfile
+import signal
 
 os.environ['DISPLAY'] = ':0'
 
