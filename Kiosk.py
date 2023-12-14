@@ -19,13 +19,6 @@ os.environ['DISPLAY'] = ':0'
 print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(1)
 
-# Function to handle shutdown gracefully
-def handle_shutdown(signal, frame):
-    sys.exit()
-
-# Register the signal handler for SIGTERM
-signal.signal(signal.SIGTERM, handle_shutdown)
-
 # Change directory to the specified path
 os.chdir(r"/var/kiosk")
 
@@ -43,7 +36,7 @@ driver_path = '/bin/chromium-browser'
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
 chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
-#chrome_options.binary_location = "/usr/bin/chromium-browser"
+chrome_options.binary_location = "/usr/bin/chromium-browser"
 #chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36)
 chrome_options.add_argument('--disable-software-rasterizer')
 chrome_options.add_argument('--disable-dev-shm-usage')
@@ -134,6 +127,3 @@ if shutdown_or_restart == 'shutdown':
 elif shutdown_or_restart == 'restart':
     # Execute the restart command
     os.system('sudo reboot') 
-else:
-    # Exit the script if the configuration is not recognized
-    sys.exit()
