@@ -68,7 +68,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options) #executable_path=driver_path,
+driver = webdriver.Chrome(options=chrome_options) #executable_path=driver_path,
 
 # Open the webpage
 driver.get(url)
