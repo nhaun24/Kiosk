@@ -128,9 +128,12 @@ shutdown_host = config.getboolean('Shutdown', 'shutdown_host')
 time.sleep(sleep_time) 
 
 # Check the shutdown behavior configuration
-if shutdown_host:
+if shutdown_or_restart == 'shutdown':
     # Execute the shutdown command
-    os.system(f'shutdown /s /t 0')
+    os.system('sudo shutdown') 
+elif shutdown_or_restart == 'restart':
+    # Execute the restart command
+    os.system('sudo restart') 
 else:
-       # Exit the script
+    # Exit the script if the configuration is not recognized
     sys.exit()
