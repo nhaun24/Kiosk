@@ -30,17 +30,17 @@ temp_cache_dir = tempfile.mkdtemp()
 
 # Path to the edgedriver executable
 #driver_path = '/usr/bin/chromium-browser'
-driver_path = ChromeDriverManager().install()
+#driver_path = ChromeDriverManager().install()
 
 # Create Chrome options
-chrome_options = webdriver.ChromeOptions()
+#chrome_options = webdriver.ChromeOptions()
 
 
 # Create Chrome options
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
-chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
-chrome_options.binary_location = "/usr/bin/chromium-browser"
+#chrome_options = webdriver.ChromeOptions()
+#chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
+#chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
+#chrome_options.binary_location = "/usr/bin/chromium-browser"
 #chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36)
 #chrome_options.add_argument('--disable-software-rasterizer')
 #chrome_options.add_argument('--disable-dev-shm-usage')
@@ -50,7 +50,7 @@ chrome_options.binary_location = "/usr/bin/chromium-browser"
 #chrome_options.add_argument('--disable-extensions')
 #chrome_options.add_argument('--disable-notifications')
 #chrome_options.add_argument('--disable-save-password-bubble')
-chrome_options.add_argument('--enable-logging')
+#chrome_options.add_argument('--enable-logging')
 #chrome_options.add_argument('--disable-session-crashed-bubble')
 #chrome_options.add_argument('--kiosk')
 
