@@ -8,12 +8,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
+from pyvirtualdisplay import Display
 import configparser
 import sys
 import subprocess
 import tempfile
 
-#os.environ['DISPLAY'] = ':0'
+display = Display(visible=0, size=(1024, 768))
+display.start()
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
