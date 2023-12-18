@@ -5,8 +5,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.opera.options import Options as OperaOptions
-from webdriver_manager.opera import OperaDriverManager
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from webdriver_manager.chrome import ChromeDriverManager
 import configparser
 import sys
 import subprocess
@@ -30,11 +30,10 @@ temp_cache_dir = tempfile.mkdtemp()
 
 # Path to the edgedriver executable
 #driver_path = '/usr/bin/chromium-browser'
-#driver_path = ChromeDriverManager().install()
+driver_path = ChromeDriverManager().install()
 
 # Create Driver options
-#chrome_options = webdriver.ChromeOptions()
-opera_options = OperaOptions()
+chrome_options = ChromeOptions()
 
 
 
@@ -54,7 +53,7 @@ opera_options = OperaOptions()
 #chrome_options.add_argument('--disable-save-password-bubble')
 #chrome_options.add_argument('--enable-logging')
 #chrome_options.add_argument('--disable-session-crashed-bubble')
-opera_options.add_argument('--kiosk')
+#chrome_options.add_argument('--kiosk')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
@@ -75,7 +74,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Opera(executable_path=OperaDriverManager().install(), options=opera_options)
+driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options)
 
 #driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
