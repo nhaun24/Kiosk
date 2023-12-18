@@ -75,7 +75,8 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Opera(options=opera_options)
+driver = webdriver.Opera(executable_path=OperaDriverManager().install(), options=opera_options)
+
 #driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
 # Open the webpage
