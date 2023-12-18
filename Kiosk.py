@@ -16,6 +16,7 @@ import tempfile
 
 display = Display(visible=0, size=(1024, 768))
 display.start()
+os.environ['DISPLAY'] = ':0'
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
