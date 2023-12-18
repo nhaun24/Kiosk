@@ -14,7 +14,7 @@ import sys
 import subprocess
 import tempfile
 
-display = Display(visible=1, size=(1024, 768))
+display = Display(size=(1024, 768))
 display.start()
 os.environ['DISPLAY'] = ':0'
 
