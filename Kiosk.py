@@ -14,8 +14,7 @@ import sys
 import subprocess
 import tempfile
 
-display = Display(size=(1024, 768))
-display.start()
+display = Display(visible=0, size=(1920, 1080)).start()
 os.environ['DISPLAY'] = ':0'
 
 # wait for host to initialise. can change this timer
