@@ -32,8 +32,10 @@ temp_cache_dir = tempfile.mkdtemp()
 #driver_path = '/usr/bin/chromium-browser'
 #driver_path = ChromeDriverManager().install()
 
-# Create Chrome options
+# Create Driver options
 #chrome_options = webdriver.ChromeOptions()
+opera_options = OperaOptions()
+
 
 
 # Create Chrome options
