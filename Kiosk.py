@@ -54,7 +54,7 @@ opera_options = OperaOptions()
 #chrome_options.add_argument('--disable-save-password-bubble')
 #chrome_options.add_argument('--enable-logging')
 #chrome_options.add_argument('--disable-session-crashed-bubble')
-#chrome_options.add_argument('--kiosk')
+opera_options.add_argument('--kiosk')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
