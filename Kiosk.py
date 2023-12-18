@@ -21,7 +21,7 @@ xvfb_command = "Xvfb :0 -screen 0 1920x1080x24"
 subprocess.Popen(xvfb_command, shell=True)
 
 # Set the DISPLAY environment variable
-#os.environ['DISPLAY'] = ':0'
+os.environ['DISPLAY'] = ':0'
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
