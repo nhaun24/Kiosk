@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 import configparser
 import sys
 import subprocess
@@ -32,8 +33,11 @@ temp_cache_dir = tempfile.mkdtemp()
 #driver_path = '/usr/bin/chromium-browser'
 driver_path = ChromeDriverManager().install()
 
-# Create Driver options
-chrome_options = ChromeOptions()
+# Create Chrome service
+chrome_service = ChromeService(executable_path=driver_path)
+
+# Create Chrome options
+chrome_options = webdriver.ChromeOptions()
 
 
 
@@ -74,7 +78,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options)
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 #driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
