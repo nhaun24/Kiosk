@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.opera import OperaDriverManager
 import configparser
 import sys
 import subprocess
@@ -73,7 +73,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Chrome(options=chrome_options) #executable_path=driver_path,
+driver = webdriver.Opera(options=opera_options)
 #driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
 # Open the webpage
