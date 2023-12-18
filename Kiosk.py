@@ -36,10 +36,8 @@ driver_path = ChromeDriverManager().install()
 # Create Chrome service
 chrome_service = ChromeService(executable_path=driver_path)
 
-# Create Chrome options
+# Create Chrome options class
 chrome_options = webdriver.ChromeOptions()
-
-
 
 # Create Chrome options
 #chrome_options = webdriver.ChromeOptions()
@@ -58,6 +56,7 @@ chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument('--enable-logging')
 #chrome_options.add_argument('--disable-session-crashed-bubble')
 #chrome_options.add_argument('--kiosk')
+chrome_options.add_argument('--service_args=--wait-for-browser=600')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
@@ -77,10 +76,8 @@ if not password:
     password = input('Enter your password: ')
 
 
-# Launch Microsoft Edge browser using edgedriver
+# Launch Web Driver
 driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-#driver = webdriver.Chrome(executable_path=chrome_driver_path, options=chrome_options)
 
 # Open the webpage
 driver.get(url)
