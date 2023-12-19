@@ -56,7 +56,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Edge(executable_path=driver_path, options=edge_options) #executable_path=driver_path, 
+driver = webdriver.Edge(options=edge_options) #executable_path=driver_path, 
 
 # Open the webpage
 driver.get(url)
