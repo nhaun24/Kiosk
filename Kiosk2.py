@@ -20,7 +20,10 @@ os.chdir('/var/kiosk')
 os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
 
 # Path to the geckodriver executable
-driver_path = '/usr/bin/geckodriver'  # Update this line with the correct path
+geckodriver_path = '/usr/bin/geckodriver'  # Update this line with the correct path
+
+# Add geckodriver to the system's PATH
+os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
 
 # Create Firefox options
 firefox_options = Options()
@@ -44,7 +47,7 @@ if not password:
     password = input('Enter your password: ')
 
 # Launch Firefox browser using geckodriver
-driver = webdriver.Firefox(executable_path=driver_path, options=firefox_options)
+driver = webdriver.Firefox(options=firefox_options)
 
 # Open the webpage
 driver.get(url)
