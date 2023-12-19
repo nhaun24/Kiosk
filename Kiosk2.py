@@ -17,7 +17,7 @@ time.sleep(1)
 os.chdir('/var/kiosk')
 
 # Execute the Git pull command
-os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Path to the geckodriver executable
 geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct path
