@@ -27,14 +27,14 @@ time.sleep(1)
 os.chdir(r"/var/kiosk")
 
 # Execute the Git pull command
-os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Path to the edgedriver executable
 driver_path = '/var/kiosk/conf'
 
 # Create Edge options
 edge_options = Options()
-edge_options.use_chromium = True
+#edge_options.use_chromium = True
 edge_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
 
 # Read the credentials from the configuration file
