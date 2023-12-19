@@ -23,7 +23,7 @@ import tempfile
 #os.environ['DISPLAY'] = ':0'
 
 # Set up virtual display
-display = Display(visible=0, size=(1920, 1080), server_type="xephyr")
+display = Display(visible=0, size=(1920, 1080))
 display.start()
 
 # Set the DISPLAY environment variable
