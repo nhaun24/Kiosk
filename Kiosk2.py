@@ -5,51 +5,33 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.options import Options
 import configparser
 import sys
-import subprocess
-import tempfile
 
-# wait for host to initialise. can change this timer
+# wait for host to initialize. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
-time.sleep(1)
-
-# Function to check if QZ tray is running
-#def is_qz_tray_running():
-#    result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
-#    return 'qz-tray.exe' in result.stdout
-#
-# Check if QZ tray is running, if not, open it
-#if not is_qz_tray_running():
-#    subprocess.Popen(r'"C:\Program Files\QZ Tray\qz-tray.exe"') 
+time.sleep(180)
 
 # Change directory to the specified path
-os.chdir(r"/var/kiosk")
+os.chdir('/var/kiosk')
 
 # Execute the Git pull command
-os.system('sudo git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
 
-# Specify tempfile stuff
-temp_user_data_dir = tempfile.mkdtemp()
-temp_cache_dir = tempfile.mkdtemp()
+# Path to the geckodriver executable
+driver_path = '/usr/bin/geckodriver'  # Update this line with the correct path
 
-# Path to the edgedriver executable
-driver_path = '/bin/chromium-browser'
-
-# Create Chrome options
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
-chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
-#chrome_options.binary_location = "/usr/bin/chromium-browser"
-chrome_options.add_argument('--start-fullscreen')
-chrome_options.add_argument('--no-snadbox')
+# Create Firefox options
+firefox_options = Options()
+firefox_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
-config.read(r'/var/kiosk/conf/config.ini')
+config.read('/var/kiosk/conf/config.ini')
 
 # URL of the webpage you want to open
-url = 'https://onrealm.org/fbcathens/Home/Tasks?redirectController=Individual&redirectAction=Info&redirectId=b1639cf8-8fc1-4287-a213-ad7a0148dd6a'
+url = config.get('Url', 'url')
 
 username = config.get('Credentials', 'username')
 password = config.get('Credentials', 'password')
@@ -61,9 +43,8 @@ if not username:
 if not password:
     password = input('Enter your password: ')
 
-
-# Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Chrome(options=chrome_options) #executable_path=driver_path,
+# Launch Firefox browser using geckodriver
+driver = webdriver.Firefox(executable_path=driver_path, options=firefox_options)
 
 # Open the webpage
 driver.get(url)
@@ -106,17 +87,17 @@ check_in_sign_up_mode_dial.click()
 launch_kiosk_button2 = driver.find_element(By.XPATH, '//*[@id="launch-kiosk-dialog"]/div[2]/a[1]')
 launch_kiosk_button2.click()
 
-# Determine what to do for shutdown and timeing
+# Determine what to do for shutdown and timing
 sleep_time = int(config.get('Shutdown', 'sleep_time'))
 shutdown_host = config.getboolean('Shutdown', 'shutdown_host')
 
 # Add a delay to keep the Kiosk window open for a certain duration
-time.sleep(sleep_time) 
+time.sleep(sleep_time)
 
 # Check the shutdown behavior configuration
 if shutdown_host:
     # Execute the shutdown command
-    os.system(f'shutdown /s /t 0')
+    os.system('shutdown /s /t 0')
 else:
-       # Exit the script
+    # Exit the script
     sys.exit()
