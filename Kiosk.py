@@ -16,11 +16,18 @@ import tempfile
 
 #display = Display(size=(1920, 1080)).start()
 # Set up Xvfb
-xvfb_command = "Xvfb :0 -screen 0 1920x1080x24"
-subprocess.Popen(xvfb_command, shell=True)
+#xvfb_command = "Xvfb :0 -screen 0 1920x1080x24"
+#subprocess.Popen(xvfb_command, shell=True)
 
 # Set the DISPLAY environment variable
-os.environ['DISPLAY'] = ':0'
+#os.environ['DISPLAY'] = ':0'
+
+# Set up virtual display
+display = Display(visible=0, size=(1920, 1080), server_type="xephyr")
+display.start()
+
+# Set the DISPLAY environment variable
+os.environ['DISPLAY'] = display.new_display
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
