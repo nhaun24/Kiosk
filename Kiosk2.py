@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 from pyvirtualdisplay import Display
+from selenium.webdriver.firefox.service import Service as FirefoxService
 import configparser
 import sys
 import tempfile
@@ -25,8 +26,6 @@ os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 display = Display(visible=1, size=(1920, 1080))  # Adjust the size as needed
 display.start()
 
-firefox_options = Options()
-
 # Path to the geckodriver executable
 geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct path
 
@@ -35,10 +34,11 @@ os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
 
 # Create a temporary directory for the profile
 temp_profile_dir = tempfile.mkdtemp()
-firefox_options.add_argument(f"--profile={temp_profile_dir}")
-
 
 # Create Firefox options
+firefox_options = Options()
+firefox_options.add_argument("--no-remote")
+firefox_options.add_argument(f"--profile={temp_profile_dir}")
 #firefox_options.add_argument("--kiosk")
 #firefox_options.add_argument("--port=4445")
 #firefox_options.add_argument("--headless")
