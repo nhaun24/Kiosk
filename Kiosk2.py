@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
+from pyvirtualdisplay import Display
 import configparser
 import sys
 
@@ -19,6 +20,10 @@ os.chdir('/var/kiosk')
 # Execute the Git pull command
 os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
+# Start Xvfb
+display = Display(visible=0, size=(1920, 1080))  # Adjust the size as needed
+display.start()
+
 # Path to the geckodriver executable
 geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct path
 
@@ -30,7 +35,7 @@ firefox_options = Options()
 #firefox_options.add_argument("--kiosk")
 firefox_options.add_argument("--port=4445")
 #firefox_options.add_argument("--headless")
-firefox_options.add_argument("--start-fullscreen")
+#firefox_options.add_argument("--start-fullscreen")
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
