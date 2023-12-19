@@ -27,7 +27,7 @@ display = Display(visible=1, size=(1920, 1080))  # Adjust the size as needed
 display.start()
 
 # Path to the geckodriver executable
-chromedriver_path = '/snap/bin/chrome'  # Update this line with the correct path
+chromedriver_path = '/snap/bin/chromedriver'  # Update this line with the correct path
 
 # Add geckodriver to the system's PATH
 #os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
