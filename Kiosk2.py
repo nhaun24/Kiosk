@@ -11,7 +11,7 @@ import sys
 
 # wait for host to initialize. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
-time.sleep(180)
+time.sleep(1)
 
 # Change directory to the specified path
 os.chdir('/var/kiosk')
