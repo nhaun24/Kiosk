@@ -40,8 +40,8 @@ firefox_options = Options()
 firefox_options.add_argument("--no-remote")
 firefox_options.add_argument(f"--profile={temp_profile_dir}")
 #firefox_options.add_argument("--kiosk")
-#firefox_options.add_argument("--port=4445")
-#firefox_options.add_argument("--headless")
+firefox_options.add_argument("--port=4445")
+firefox_options.add_argument("--headless")
 #firefox_options.add_argument("--start-fullscreen")
 
 # Read the credentials from the configuration file
