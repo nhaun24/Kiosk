@@ -5,9 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.options import Options
 from pyvirtualdisplay import Display
-from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
 import configparser
 import sys
 import tempfile
@@ -27,7 +27,7 @@ display = Display(visible=1, size=(1920, 1080))  # Adjust the size as needed
 display.start()
 
 # Path to the geckodriver executable
-geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct path
+chromedriver_path = '/snap/bin/chrome'  # Update this line with the correct path
 
 # Add geckodriver to the system's PATH
 os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
@@ -36,14 +36,17 @@ os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
 temp_profile_dir = tempfile.mkdtemp()
 
 # Create Firefox options
-firefox_options = Options()
-firefox_options.add_argument("--no-remote")
-firefox_options.add_argument(f"--profile={temp_profile_dir}")
-firefox_options.binary_location = '/usr/bin/firefox'
+chrome_options = Options()
+chrome_options.add_argument("--no-remote")
+chrome_options.add_argument(f"--profile={temp_profile_dir}")
+#chrome_options.binary_location = '/usr/bin/chrome'
 #firefox_options.add_argument("--kiosk")
-firefox_options.add_argument("--port=4445")
+chrome_options.add_argument("--port=4445")
 #firefox_options.add_argument("--headless")
 #firefox_options.add_argument("--start-fullscreen")
+
+# Specify the path to the ChromeDriver executable
+chrome_service = ChromeService(executable_path=chromedriver_path)
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
@@ -63,7 +66,7 @@ if not password:
     password = input('Enter your password: ')
 
 # Launch Firefox browser using geckodriver
-driver = webdriver.Firefox(options=firefox_options)
+driver = webdriver.Chrome(options=chrome_options, service=chrome_service)
 
 # Open the webpage
 driver.get(url)
