@@ -27,7 +27,8 @@ os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
 
 # Create Firefox options
 firefox_options = Options()
-firefox_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
+#firefox_options.add_argument("--kiosk")
+firefox_options.add_argument("--port=4445")
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
