@@ -36,7 +36,7 @@ driver_path = '/var/kiosk/conf'
 edge_options = Options()
 #edge_options.use_chromium = True
 edge_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
-#edge_options.binary_location - ("/usr/bin/microsoft-edge")
+edge_options.binary_location ='/usr/bin/microsoft-edge'
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
@@ -57,7 +57,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Edge(executable_path='/var/kiosk/conf/msedgedriver',options=edge_options) #executable_path=driver_path, 
+driver = webdriver.Edge(microsfoptions=edge_options) #executable_path=driver_path, 
 
 # Open the webpage
 driver.get(url)
