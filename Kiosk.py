@@ -36,7 +36,7 @@ driver_path = '/var/kiosk/conf'
 edge_options = Options()
 #edge_options.use_chromium = True
 edge_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
-edge_options.binary_location ='/usr/bin/microsoft-edge'
+edge_options.binary_location ='/var/kiosk/conf/msedgedriver'
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
