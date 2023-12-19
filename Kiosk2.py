@@ -25,6 +25,8 @@ os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 #display = Display(visible=1, size=(1920, 1080))  # Adjust the size as needed
 #display.start()
 
+firefox_options = Options()
+
 # Path to the geckodriver executable
 geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct path
 
@@ -37,7 +39,6 @@ firefox_options.add_argument(f"--profile={temp_profile_dir}")
 
 
 # Create Firefox options
-firefox_options = Options()
 #firefox_options.add_argument("--kiosk")
 #firefox_options.add_argument("--port=4445")
 #firefox_options.add_argument("--headless")
