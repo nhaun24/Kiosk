@@ -42,6 +42,7 @@ chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
 chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
 chrome_options.binary_location = "/usr/bin/chromium-browser"
 chrome_options.add_argument('--start-fullscreen')
+chrome_options.add_argument('--no-snadbox')
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
