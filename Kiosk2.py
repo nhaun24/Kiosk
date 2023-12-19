@@ -9,6 +9,7 @@ from selenium.webdriver.firefox.options import Options
 from pyvirtualdisplay import Display
 import configparser
 import sys
+import tempfile
 
 # wait for host to initialize. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
@@ -29,6 +30,11 @@ geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct 
 
 # Add geckodriver to the system's PATH
 os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
+
+# Create a temporary directory for the profile
+temp_profile_dir = tempfile.mkdtemp()
+firefox_options.add_argument(f"--profile={temp_profile_dir}")
+
 
 # Create Firefox options
 firefox_options = Options()
