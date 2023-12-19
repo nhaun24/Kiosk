@@ -29,7 +29,8 @@ os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
 firefox_options = Options()
 #firefox_options.add_argument("--kiosk")
 firefox_options.add_argument("--port=4445")
-firefox_options.add_argument("--headless")
+#firefox_options.add_argument("--headless")
+firefox_options.add_argument("--start-fullscreen")
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
