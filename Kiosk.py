@@ -14,6 +14,8 @@ import subprocess
 print("Please wait for host to initialize, do not exit from this screen")
 time.sleep(1)
 
+xvfb-run -a -s "-screen 0 1920x1080x24" python /var/kiosk/Kiosk.py
+
 # Function to check if QZ tray is running
 #def is_qz_tray_running():
 #    result = subprocess.run(['tasklist', '/fi', 'imagename eq qz-tray.exe'], capture_output=True, text=True)
