@@ -5,14 +5,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from pyvirtualdisplay import Display
+from selenium.webdriver.edge.options import Options
 import configparser
 import sys
 import subprocess
-import tempfile
-
-os.environ['DISPLAY'] = ':0'
 
 # wait for host to initialise. can change this timer
 print("Please wait for host to initialize, do not exit from this screen")
@@ -31,36 +27,22 @@ time.sleep(1)
 os.chdir(r"/var/kiosk")
 
 # Execute the Git pull command
-os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
-
-# Specify tempfile stuff
-temp_user_data_dir = tempfile.mkdtemp()
-temp_cache_dir = tempfile.mkdtemp()
+os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
 
 # Path to the edgedriver executable
-driver_path = '/bin/chromium-browser'
+driver_path = '/var/kiosk/conf'
 
-# Create Chrome options
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument(f'--user-data-dir={temp_user_data_dir}')
-chrome_options.add_argument(f'--disk-cache-dir={temp_cache_dir}')
-chrome_options.binary_location = "/usr/bin/chromium-browser"
-#chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--disable-software-rasterizer')
-chrome_options.add_argument('--disable-extensions')
-chrome_options.add_argument('--disable-dev-shm-usage')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-infobars')
-chrome_options.add_argument('--disable-popup-blocking')
-chrome_options.add_argument('--start-maximized') 
+# Create Edge options
+edge_options = Options()
+edge_options.use_chromium = True
+edge_options.add_argument("--kiosk")  # Add this argument to start the browser in full-screen mode
 
 # Read the credentials from the configuration file
 config = configparser.ConfigParser()
 config.read(r'/var/kiosk/conf/config.ini')
 
 # URL of the webpage you want to open
-url = 'https://onrealm.org/fbcathens/Home/Tasks?redirectController=Individual&redirectAction=Info&redirectId=b1639cf8-8fc1-4287-a213-ad7a0148dd6a'
+url = config.get('Url', 'url')
 
 username = config.get('Credentials', 'username')
 password = config.get('Credentials', 'password')
@@ -74,7 +56,7 @@ if not password:
 
 
 # Launch Microsoft Edge browser using edgedriver
-driver = webdriver.Chrome(options=chrome_options) #executable_path=driver_path,
+driver = webdriver.Edge(executable_path=driver_path, options=edge_options)
 
 # Open the webpage
 driver.get(url)
