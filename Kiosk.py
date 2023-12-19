@@ -15,7 +15,6 @@ import subprocess
 import tempfile
 
 display = Display(size=(1920, 1080)).start()
-os.environ['DISPLAY'] = ':0'
 # Set up Xvfb
 #xvfb_command = "Xvfb :0 -screen 0 1920x1080x24"
 #subprocess.Popen(xvfb_command, shell=True)
