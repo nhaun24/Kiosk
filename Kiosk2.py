@@ -20,7 +20,7 @@ os.chdir('/var/kiosk')
 os.system('git pull --no-verify https://github.com/nhaun24/Kiosk main')
 
 # Path to the geckodriver executable
-geckodriver_path = '/usr/bin/geckodriver'  # Update this line with the correct path
+geckodriver_path = '/snap/bin/geckodriver'  # Update this line with the correct path
 
 # Add geckodriver to the system's PATH
 os.environ['PATH'] += os.pathsep + os.path.dirname(geckodriver_path)
