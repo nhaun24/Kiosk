@@ -23,7 +23,7 @@ os.chdir('/var/kiosk')
 os.system('git pull --no-verify https://github.com/nhaun24/Kiosk Linux')
 
 # Start Xvfb
-display = Display(visible=0, size=(1920, 1080))  # Adjust the size as needed
+display = Display(visible=1, size=(1920, 1080))  # Adjust the size as needed
 display.start()
 
 # Path to the geckodriver executable
